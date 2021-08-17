@@ -84,7 +84,7 @@ Use the higher-order function getWinnersByYear to do the following:
 2. Receive a callback function getYears from task 3
 3. Receive a callback function getWinners from task 4
 4. Return an array of strings that say "In {year}, {country} won the world cup!" 
- 
+
 hint: the strings returned need to exactly match the string in step 4.
  */
 
