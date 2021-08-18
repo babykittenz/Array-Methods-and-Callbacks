@@ -67,6 +67,8 @@ function getWinners(data, getscb) {
             return (item["Home Team Name"]);
         } else if (item["Away Team Goals"] > item["Home Team Goals"]){
             return (item["Away Team Name"]);
+        } else if (item["Away Team Goals"] === item["Home Team Goals"]){
+            return (item["Away Team Name"]);
         }
     });
 
@@ -95,7 +97,7 @@ function getWinnersByYear(data, getYearscb, getWinnerscb) {
     
     
     const yearArray = finalsArray.map( item => item.Year );
-    const countryArray = (getWinnerscb);
+    const countryArray = getWinnerscb(data, getYearscb);
     const strArray = [];
 
     for(let i = 0; i < yearArray.length; i++){
@@ -109,7 +111,7 @@ function getWinnersByYear(data, getYearscb, getWinnerscb) {
    return strArray;
 }
 
-console.log(getWinnersByYear(fifaData, getYears(fifaData, getFinals),getWinners(fifaData, getFinals)));
+// console.log(getWinnersByYear(fifaData, getYears(fifaData, getFinals),getWinners(fifaData, getFinals)));
 
 
 
