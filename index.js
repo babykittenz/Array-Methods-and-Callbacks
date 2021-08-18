@@ -93,9 +93,6 @@ hint: the strings returned need to exactly match the string in step 4.
 function getWinnersByYear(data, getYearscb, getWinnerscb) {
     /* code here */
     const finalsArray = getFinals(data);
-    
-    
-    
     const yearArray = finalsArray.map( item => item.Year );
     const countryArray = getWinnerscb(data, getYearscb);
     const strArray = [];
@@ -111,7 +108,7 @@ function getWinnersByYear(data, getYearscb, getWinnerscb) {
    return strArray;
 }
 
-// console.log(getWinnersByYear(fifaData, getYears(fifaData, getFinals),getWinners(fifaData, getFinals)));
+
 
 
 
@@ -128,8 +125,33 @@ Use the higher order function getAverageGoals to do the following:
 
 function getAverageGoals(getfinalstwocb) {
    /* code here */
+   
+   const finalsSecond = getfinalstwocb;
+   
+   
+   const homeGoals = finalsSecond.reduce((total, goals) => {
+       return total += goals["Home Team Goals"];
+}, 0);
+const awayGoals = finalsSecond.reduce((total, goals) => {
+    return total += goals["Away Team Goals"];
+}, 0);
+
+    let averageHome = homeGoals/finalsSecond.length;
+    let averageAway = awayGoals/finalsSecond.length;
+    let bothAvg = averageAway + averageHome;
+    bothAvg = bothAvg.toFixed(2);
+    
+
+ 
+   
+return bothAvg;
+
+
+   
 
 }
+
+console.log(getAverageGoals(getFinals(fifaData)));
 
 
 
